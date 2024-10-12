@@ -1,7 +1,7 @@
 function SecondNavBar({ children }) {
   return (
     <div className="flex justify-center ">
-      <div className="justify-between w-7/12 relative">
+      <div className="justify-between w-8/12 relative">
         <div className="flex space-x-10 items-center p-4">
           <a
             href="#"

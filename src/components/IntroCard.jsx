@@ -1,6 +1,6 @@
 const IntroCard = ( {profileDetails} ) => {
   return (
-    <div className="bg-white border rounded-lg shadow p-4 max-w-sm">
+    <div className="bg-white border rounded-lg shadow p-4 ">
       <h2 className="text-xl font-bold mb-2">Intro</h2>
 
       <p className="text-gray-600 text-center mb-4">

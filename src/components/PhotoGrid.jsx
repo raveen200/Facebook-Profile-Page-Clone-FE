@@ -42,7 +42,7 @@ const PhotoGrid = () => {
   return (
     <>
       <>
-        <div className="bg-white border rounded-lg shadow p-4 mt-4 max-w-sm">
+        <div className="bg-white border rounded-lg shadow p-4 mt-4 ">
           <h2 className="text-xl font-bold mb-2">Photos</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
             {photos.map((photo, index) => (

@@ -2,7 +2,10 @@ import ContactSection from "@/components/ContactSection";
 import CoverPic from "@/components/CoverPic";
 import IntroCard from "@/components/IntroCard";
 import PhotoGrid from "@/components/PhotoGrid";
+import PostBox from "@/components/PostBox";
+import PostCard from "@/components/PostCard";
 import SecondNavBar from "@/layout/SecondNavBar";
+
 function ProfilePage() {
   const coverPhoto =
     "https://scontent.fcmb12-1.fna.fbcdn.net/v/t39.30808-6/241347091_393449245508798_5701947529629634859_n.jpg?stp=dst-jpg_s960x960&_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeHn2NFyS2YP1KERi9irRzDUWkK-gpVEeQpaQr6ClUR5Co7UyCt3X9jJJFof1nL1QiqoIffKBkn9NqnzWxWEUuN-&_nc_ohc=lQmIRbDIGpMQ7kNvgG5A1xt&_nc_zt=23&_nc_ht=scontent.fcmb12-1.fna&_nc_gid=AmUSKMiW7PcvdrKnyF7xna2&oh=00_AYAAa_oXRObt6iY9hgaTfzi3cNfAJVIHlYIZjURu05rGEw&oe=670FD925";
@@ -25,6 +28,16 @@ function ProfilePage() {
     company: "Software company",
   };
 
+  const postCardData = {
+    name: "Raveen Samudika",
+    time: "5m",
+    title: "Delicious Meal",
+    description:
+      "This is a delicious-looking meal with a fried egg, salad, and meat covered in gravy. Perfect for a great dinner!",
+    image:
+      "https://cdn.icon-icons.com/icons2/2699/PNG/512/wikipedia_logo_icon_169796.png",
+  };
+
   return (
     <div>
       <CoverPic coverPhoto={coverPhoto} />
@@ -34,8 +47,17 @@ function ProfilePage() {
         dp={dp}
       />
       <SecondNavBar>
-        <IntroCard profileDetails={profileDetails} />
-        <PhotoGrid />
+        <div className="grid grid-cols-3 gap-2">
+          <div>
+            <IntroCard profileDetails={profileDetails} />
+            <PhotoGrid />
+          </div>
+          <div className="col-span-2">
+            <PostBox />
+            <PostCard postCardData={postCardData} />
+            <PostCard postCardData={postCardData} />
+          </div>
+        </div>
       </SecondNavBar>
     </div>
   );
