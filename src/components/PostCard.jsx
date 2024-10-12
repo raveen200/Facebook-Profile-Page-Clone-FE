@@ -3,16 +3,15 @@ import { Button } from "./ui/button";
 import { CardFooter } from "./ui/card";
 
 function PostCard({ postCardData }) {
+  const [dp] = useState(
+    "https://avatars.githubusercontent.com/u/114682975?s=96&v=4"
+  );
 
   return (
     <div className="w-full mt-4  border rounded-lg bg-white shadow-sm">
       <div className=" px-6 py-4 mt-6">
         <div className="flex  items-center">
-          <img
-            className="w-10 h-10 rounded-full"
-            src={postCardData.image}
-            alt="Profile"
-          />
+          <img className="w-10 h-10 rounded-full mr-2" src={dp} alt="Profile" />
 
           <div>
             <div className="text-sm font-semibold">{postCardData.name}</div>
