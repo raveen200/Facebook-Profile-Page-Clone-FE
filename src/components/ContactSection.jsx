@@ -3,12 +3,12 @@ import { AiFillLike } from "react-icons/ai";
 
 function ContactSection({ name, likesAndFollowers, dp }) {
   return (
-    <div className="flex  justify-center">
-      <div className="flex items-center justify-between w-7/12 p-4 bg-white border-b shadow-sm ">
+    <div className="flex justify-center">
+      <div className="flex md:items-center justify-between md:w-7/12 p-4 bg-white border-b shadow-sm sm:justify-between ">
         <div className="flex items-center space-x-4">
           <img src={dp} alt={name} className="h-16 w-16 rounded-full" />
 
-          {/* Title and Website Link */}
+        
           <div>
             <h1 className="text-2xl font-bold">{name}</h1>
             <div className="text-gray-500 hover:text-blue-500">
@@ -17,7 +17,7 @@ function ContactSection({ name, likesAndFollowers, dp }) {
           </div>
         </div>
 
-        <div className="flex items-center  space-x-4">
+        <div className="hidden md:flex items-center   space-x-4">
           <div className="space-x-2">
             <a
               href="#"

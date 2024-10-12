@@ -1,8 +1,7 @@
 const PostBox = () => {
   return (
-    <div className="w-full  p-4 border rounded-lg bg-white shadow-sm">
-
-      <div className="flex items-center mb-4">
+    <div className=" w-full  p-4 border rounded-lg bg-white shadow-sm">
+      <div className="flex items-center  mb-4">
         <img
           src="https://avatars.githubusercontent.com/u/114682975?s=96&v=4"
           alt="Profile"
@@ -11,10 +10,10 @@ const PostBox = () => {
         <input
           type="text"
           placeholder="What's on your mind?"
-          className="flex-grow py-2 px-4 rounded-full bg-gray-100 focus:outline-none"
+          className="flex-grow max-w-xl py-2 px-4 rounded-full bg-gray-100 focus:outline-none"
         />
       </div>
-  
+
       <div className="flex justify-between">
         <button className="flex items-center space-x-2 text-red-500 font-semibold hover:bg-gray-100 px-4 py-2 rounded-lg">
           <span role="img" aria-label="Live Video">

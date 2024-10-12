@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 const AppHeader = ({ children }) => {
   return (
     <div className="flex min-h-screen w-full flex-col">
-      <nav className="flex justify-between items-center p-4 text-white">
+      <nav className="flex w-full bg-white justify-between items-center p-4  text-white z-10 md:fixed">
         <div className="flex items-center space-x-4">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg"

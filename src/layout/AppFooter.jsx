@@ -1,6 +1,6 @@
 function AppFooter() {
   return (
-    <footer className=" mt-2 opacity-75 max-w-sm">
+    <footer className=" hidden md:block mt-2 opacity-75 max-w-sm">
       <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div className="space-x-3">
           <a href="#" className="hover:underline">
