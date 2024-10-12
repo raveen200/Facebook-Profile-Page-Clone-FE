@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Button } from "./ui/button";
 import { CardFooter } from "./ui/card";
 
 function PostCard({ postCardData }) {
+
   return (
     <div className="w-full mt-4  border rounded-lg bg-white shadow-sm">
       <div className=" px-6 py-4 mt-6">

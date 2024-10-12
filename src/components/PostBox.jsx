@@ -1,4 +1,8 @@
+import { useState } from "react";
+import CreatePost from "./CreatePost";
+
 const PostBox = () => {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <div className=" w-full  p-4 border rounded-lg bg-white shadow-sm">
       <div className="flex items-center  mb-4">
@@ -24,7 +28,10 @@ const PostBox = () => {
           </span>
           <span>Live video</span>
         </button>
-        <button className="flex items-center space-x-2 text-green-500 font-semibold hover:bg-gray-100 px-4 py-2 rounded-lg">
+        <button
+          onClick={setOpenModal}
+          className="flex items-center space-x-2 text-green-500 font-semibold hover:bg-gray-100 px-4 py-2 rounded-lg"
+        >
           <span role="img" aria-label="Photo/Video">
             <img
               src="https://static.xx.fbcdn.net/rsrc.php/v3/y7/r/Ivw7nhRtXyo.png?_nc_eui2=AeEq1sM9mdWOA8jxiDHUpyNsPL4YoeGsw5I8vhih4azDknFT4klVlLUan0PACbi1fRCKVeWxY6VICKLemIA6YEIl"
@@ -43,6 +50,8 @@ const PostBox = () => {
           <span>Life event</span>
         </button>
       </div>
+
+      {openModal && <CreatePost setOpenModal={setOpenModal} openModal={openModal} />}
     </div>
   );
 };

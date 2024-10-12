@@ -1,5 +1,6 @@
 import ContactSection from "@/components/ContactSection";
 import CoverPic from "@/components/CoverPic";
+import CreatePost from "@/components/CreatePost";
 import IntroCard from "@/components/IntroCard";
 import PhotoGrid from "@/components/PhotoGrid";
 import PostBox from "@/components/PostBox";
@@ -99,6 +100,7 @@ function ProfilePage() {
           </div>
         </div>
       </div>
+      <CreatePost />
     </div>
   );
 }
