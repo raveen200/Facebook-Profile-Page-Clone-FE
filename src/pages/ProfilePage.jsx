@@ -85,10 +85,12 @@ function ProfilePage() {
         likesAndFollowers={likesAndFollowers}
         dp={dp}
       />
+
       <SecondNavBar />
+      <CreatePost />
       <div className="bg-slate-100 md:px-12 py-4">
         <div className="md:grid md:grid-cols-3 gap-2 ">
-          <div>
+          <div className="">
             <IntroCard profileDetails={profileDetails} />
             <PhotoGrid />
           </div>
@@ -100,7 +102,6 @@ function ProfilePage() {
           </div>
         </div>
       </div>
-      <CreatePost />
     </div>
   );
 }

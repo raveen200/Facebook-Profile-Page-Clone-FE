@@ -26,7 +26,7 @@ function CreatePost({ setOpenModal, openModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     console.log("Post text:", postText);
     console.log("Image:", image);
     console.log("Video:", video);
@@ -36,7 +36,7 @@ function CreatePost({ setOpenModal, openModal }) {
     <>
       {openModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50 ">
-          <div className="bg-white w-3/5 mt-4 p-6 rounded-lg ">
+          <div className="bg-white md:w-3/5 mt-4 p-6 rounded-lg ">
             <div className="flex items-center mb-4">
               <img
                 src="profile-picture.jpg"
@@ -104,6 +104,12 @@ function CreatePost({ setOpenModal, openModal }) {
               </button>
             </div>
             <div className="flex justify-end mt-4">
+              <button
+                onClick={() => setOpenModal(false)}
+                className="bg-red-500 text-white px-4 py-2 rounded-lg mr-2"
+              >
+                Cancel
+              </button>
               <button className="bg-blue-500 text-white px-4 py-2 rounded-lg">
                 Post
               </button>
