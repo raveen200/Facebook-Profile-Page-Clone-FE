@@ -1,9 +1,8 @@
-function SecondNavBar() {
+function SecondNavBar({ children }) {
   return (
-    <div className="flex  justify-center ">
+    <div className="flex justify-center ">
       <div className="justify-between w-7/12 relative">
         <div className="flex space-x-10 items-center p-4">
-       
           <a
             href="#"
             className="text-blue-500 font-semibold border-b-2 border-blue-500 pb-2"
@@ -57,7 +56,6 @@ function SecondNavBar() {
             </div>
           </div>
         </div>
-
         <div className=" absolute right-4 top-4">
           <button className="bg-gray-100 rounded-full p-2 hover:bg-gray-200">
             <svg
@@ -69,6 +67,9 @@ function SecondNavBar() {
             </svg>
           </button>
         </div>
+        <main className="flex min-h-screen flex-col p-4 bg-slate-200">
+          {children}
+        </main>
       </div>
     </div>
   );
