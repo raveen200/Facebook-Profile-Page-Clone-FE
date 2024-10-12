@@ -32,6 +32,8 @@ function CreatePost({ setOpenModal, openModal }) {
     console.log("Video:", video);
   };
 
+  const dp = "https://avatars.githubusercontent.com/u/114682975?s=96&v=4";
+
   return (
     <>
       {openModal && (
@@ -39,7 +41,7 @@ function CreatePost({ setOpenModal, openModal }) {
           <div className="bg-white md:w-3/5 mt-4 p-6 rounded-lg ">
             <div className="flex items-center mb-4">
               <img
-                src="profile-picture.jpg"
+                src={dp}
                 alt="Profile picture"
                 className="w-10 h-10 rounded-full mr-2"
               />
