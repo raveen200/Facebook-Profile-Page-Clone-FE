@@ -28,15 +28,53 @@ function ProfilePage() {
     company: "Software company",
   };
 
-  const postCardData = {
-    name: "Raveen Samudika",
-    time: "5m",
-    title: "Delicious Meal",
-    description:
-      "This is a delicious-looking meal with a fried egg, salad, and meat covered in gravy. Perfect for a great dinner!",
-    image:
-      "https://cdn.icon-icons.com/icons2/2699/PNG/512/wikipedia_logo_icon_169796.png",
-  };
+  const postCardData = [
+    {
+      name: "Raveen Samudika",
+      time: "5m",
+      title: "Delicious Meal",
+      description:
+        "This is a delicious-looking meal with a fried egg, salad, and meat covered in gravy. Perfect for a great dinner!",
+      image:
+        "https://cdn.icon-icons.com/icons2/2699/PNG/512/wikipedia_logo_icon_169796.png",
+    },
+    {
+      name: "John Doe",
+      time: "10m",
+      title: "Morning Coffee",
+      description:
+        "Enjoying a cup of freshly brewed coffee to start the day. Nothing beats the aroma of coffee in the morning!",
+      image:
+        "https://cdn.icon-icons.com/icons2/2699/PNG/512/wikipedia_logo_icon_169796.png",
+    },
+    {
+      name: "Jane Smith",
+      time: "15m",
+      title: "Sunset View",
+      description:
+        "Captured this beautiful sunset while on a walk. The colors were absolutely stunning!",
+      image:
+        "https://cdn.icon-icons.com/icons2/2699/PNG/512/wikipedia_logo_icon_169796.png",
+    },
+    {
+      name: "Alice Johnson",
+      time: "20m",
+      title: "New Recipe",
+      description:
+        "Tried out a new recipe today and it turned out great! Can't wait to share it with everyone.",
+      image:
+        "https://cdn.icon-icons.com/icons2/2699/PNG/512/wikipedia_logo_icon_169796.png",
+    },
+    {
+      name: "Bob Brown",
+      time: "25m",
+      title: "Workout Routine",
+      description:
+        "Just finished my workout for the day. Feeling energized and ready to tackle the rest of the day!",
+      image:
+        "https://cdn.icon-icons.com/icons2/2699/PNG/512/wikipedia_logo_icon_169796.png",
+    },
+  ];
 
   return (
     <div>
@@ -54,8 +92,9 @@ function ProfilePage() {
           </div>
           <div className="col-span-2">
             <PostBox />
-            <PostCard postCardData={postCardData} />
-            <PostCard postCardData={postCardData} />
+            {postCardData.map((postCardData, index) => (
+              <PostCard key={index} postCardData={postCardData} />
+            ))}
           </div>
         </div>
       </SecondNavBar>
