@@ -1,11 +1,25 @@
 import Layout from "./layout/AppHeader";
 import ProfilePage from "./pages/ProfilePage";
+import SignUp from "./pages/SignUp";
+import LoginForm from "./pages/Login";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   return (
-    <Layout>
-      <ProfilePage />
-    </Layout>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/signUp" element={<SignUp />} />
+
+          <Route path="/" element={<LoginForm />} />
+
+          <Route element={<ProtectedRoute />}>
+            <Route path="/profilePage" element={<ProfilePage />} />
+          </Route>
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 

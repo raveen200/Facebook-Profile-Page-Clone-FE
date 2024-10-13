@@ -6,6 +6,8 @@ import PhotoGrid from "@/components/PhotoGrid";
 import PostBox from "@/components/PostBox";
 import PostCard from "@/components/PostCard";
 import SecondNavBar from "@/layout/SecondNavBar";
+import { useEffect, useState } from "react";
+import { getProfile } from "@/service/FbService";
 
 function ProfilePage() {
   const coverPhoto =
@@ -76,6 +78,23 @@ function ProfilePage() {
         "https://cdn.icon-icons.com/icons2/2699/PNG/512/wikipedia_logo_icon_169796.png",
     },
   ];
+
+  const [profileDetailss, setProfileDetailss] = useState({});
+
+  console.log(profileDetailss);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await getProfile();
+        setProfileDetailss(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProfile();
+  });
 
   return (
     <div>
