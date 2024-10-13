@@ -10,7 +10,7 @@ const AppHeader = ({ children }) => {
   const isLoginPage = location.pathname === "/";
   const isRegisterPage = location.pathname === "/signUp";
 
-  const profile_image = Cookies.get("profile_image");
+  const profileImage = Cookies.get("profile_image");
 
   return (
     <div className="flex min-h-screen w-full flex-col">
@@ -122,7 +122,10 @@ const AppHeader = ({ children }) => {
 
             <Button className="pr-0" variant="link">
               <Avatar className="w-8 h-8 md:w-12 md:h-12">
-                <AvatarImage src={profile_image} />
+                {profileImage && (
+                  <AvatarImage src={profileImage} alt="Profile" />
+                )}
+
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </Button>

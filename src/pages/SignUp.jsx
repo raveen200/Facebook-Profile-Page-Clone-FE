@@ -34,7 +34,8 @@ export default function SignUp() {
 
     try {
       const response = await registerProfile(formData);
-      if (response.access_token) {
+      console.log(response);
+      if (response.status === 201) {
         navigate("/");
       }
     } catch (error) {

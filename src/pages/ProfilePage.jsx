@@ -6,9 +6,10 @@ import PhotoGrid from "@/components/PhotoGrid";
 import PostBox from "@/components/PostBox";
 import PostCard from "@/components/PostCard";
 import SecondNavBar from "@/layout/SecondNavBar";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getProfile } from "@/service/FbService";
 import Cookies from "js-cookie";
+import { useContext } from "react";
 import { ProfileDataContext } from "@/context/ProfileContext";
 
 function ProfilePage() {
@@ -29,26 +30,23 @@ function ProfilePage() {
     company: "Software company",
   };
 
- 
-
   const [profileData, setProfileData] = useState(null);
-
-  console.log(profileData);
 
   Cookies.set("profile_image", profileData?.user.profile_image);
   Cookies.set("name", profileData?.user.name);
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const response = await getProfile();
-        setProfileData(response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchProfile();
+  const fetchProfile = useCallback(async () => {
+    try {
+      const response = await getProfile();
+      setProfileData(response);
+    } catch (error) {
+      console.error(error);
+    }
   }, []);
+
+  useEffect(() => {
+    fetchProfile();
+  }, [fetchProfile]);
 
   return (
     <ProfileDataContext.Provider value={{ profileData }}>
@@ -73,10 +71,12 @@ function ProfilePage() {
             <div className="col-span-2">
               <PostBox />
 
-              {profileData?.posts.map((profileData, index) => (
-                <PostCard key={index} profileData={profileData}
-             />
-              ))}
+              {profileData?.posts
+                .slice()
+                .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+                .map((post, index) => (
+                  <PostCard key={index} profileData={post} />
+                ))}
             </div>
           </div>
         </div>

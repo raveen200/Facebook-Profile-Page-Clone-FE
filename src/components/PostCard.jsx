@@ -6,7 +6,7 @@ function PostCard({ profileData }) {
   const name = Cookies.get("name");
   const profile_image = Cookies.get("profile_image");
 
-  console.log(name);
+
 
   return (
     <div className="w-full mt-4  border rounded-lg bg-white shadow-sm">

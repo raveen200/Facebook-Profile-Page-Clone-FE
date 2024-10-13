@@ -12,6 +12,7 @@ import { addPost } from "../service/FbService";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { ProfileDataContext } from "@/context/ProfileContext";
+import { getProfile } from "@/service/FbService";
 
 function CreatePost({ setOpenModal, openModal }) {
   const { register, handleSubmit } = useForm({
@@ -31,6 +32,7 @@ function CreatePost({ setOpenModal, openModal }) {
       const response = await addPost(formData);
       if (response) {
         setOpenModal(false);
+        window.location.reload();
       }
     } catch (error) {
       console.error(error);
@@ -50,7 +52,6 @@ function CreatePost({ setOpenModal, openModal }) {
                   className="w-10 h-10 rounded-full mr-2"
                 />
                 <h3 className="text-lg font-semibold">
-                  {" "}
                   {profileData.user.name}
                 </h3>
                 <div className="ml-auto flex items-center">
