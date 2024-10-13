@@ -11,12 +11,13 @@ import { Label } from "@/components/ui/label";
 import { registerProfile } from "@/service/FbService";
 
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const description =
   "A sign up form with first name, last name, email and password inside a card. There's an option to sign up with GitHub and a link to login if you already have an account";
 
 export default function SignUp() {
+  const navigate = useNavigate();
   const { register, handleSubmit } = useForm({
     defaultValues: {
       email: "",
@@ -33,7 +34,9 @@ export default function SignUp() {
 
     try {
       const response = await registerProfile(formData);
-      console.log(response);
+      if (response.access_token) {
+        navigate("/");
+      }
     } catch (error) {
       console.error(error);
     }

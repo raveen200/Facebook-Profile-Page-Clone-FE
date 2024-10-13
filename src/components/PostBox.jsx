@@ -1,13 +1,15 @@
 import { useState } from "react";
 import CreatePost from "./CreatePost";
+import Cookies from "js-cookie";
 
 const PostBox = () => {
   const [openModal, setOpenModal] = useState(false);
+  const profile_image = Cookies.get("profile_image");
   return (
     <div className=" w-full  p-4 border rounded-lg bg-white shadow-sm">
       <div className="flex items-center  mb-4">
         <img
-          src="https://avatars.githubusercontent.com/u/114682975?s=96&v=4"
+          src={profile_image}
           alt="Profile"
           className="w-10 h-10 rounded-full mr-3"
         />
@@ -51,7 +53,9 @@ const PostBox = () => {
         </button>
       </div>
 
-      {openModal && <CreatePost setOpenModal={setOpenModal} openModal={openModal} />}
+      {openModal && (
+        <CreatePost setOpenModal={setOpenModal} openModal={openModal} />
+      )}
     </div>
   );
 };

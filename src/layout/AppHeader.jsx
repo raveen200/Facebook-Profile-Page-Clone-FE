@@ -2,12 +2,15 @@ import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
 import { useLocation } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const AppHeader = ({ children }) => {
   const location = useLocation();
 
   const isLoginPage = location.pathname === "/";
   const isRegisterPage = location.pathname === "/signUp";
+
+  const profile_image = Cookies.get("profile_image");
 
   return (
     <div className="flex min-h-screen w-full flex-col">
@@ -119,7 +122,7 @@ const AppHeader = ({ children }) => {
 
             <Button className="pr-0" variant="link">
               <Avatar className="w-8 h-8 md:w-12 md:h-12">
-                <AvatarImage src="https://avatars.githubusercontent.com/u/114682975?s=96&v=4" />
+                <AvatarImage src={profile_image} />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
             </Button>

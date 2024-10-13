@@ -32,6 +32,7 @@ export default function LoginForm() {
       const response = await loginProfile(data);
       console.log(response);
       Cookies.set("token", response.data.access_token);
+      navigate("/profilePage");
     } catch (error) {
       console.error(error);
     }

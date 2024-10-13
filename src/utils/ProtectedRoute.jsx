@@ -5,7 +5,7 @@ const ProtectedRoute = () => {
   const token = Cookies.get("token");
 
   if (!token) {
-    return <Navigate to="/loginForm" />;
+    return <Navigate to="/" />;
   }
 
   return <Outlet />;

@@ -1,22 +1,27 @@
-import { useState } from "react";
 import { Button } from "./ui/button";
 import { CardFooter } from "./ui/card";
+import Cookies from "js-cookie";
 
-function PostCard({ postCardData }) {
-  const [dp] = useState(
-    "https://avatars.githubusercontent.com/u/114682975?s=96&v=4"
-  );
+function PostCard({ profileData }) {
+  const name = Cookies.get("name");
+  const profile_image = Cookies.get("profile_image");
+
+  console.log(name);
 
   return (
     <div className="w-full mt-4  border rounded-lg bg-white shadow-sm">
       <div className=" px-6 py-4 mt-6">
         <div className="flex  items-center">
-          <img className="w-10 h-10 rounded-full mr-2" src={dp} alt="Profile" />
+          <img
+            className="w-10 h-10 rounded-full mr-2"
+            src={profile_image}
+            alt="Profile"
+          />
 
           <div>
-            <div className="text-sm font-semibold">{postCardData.name}</div>
+            <div className="text-sm font-semibold">{name}</div>
             <div className="flex items-center text-xs text-gray-500">
-              <span>{postCardData.time}</span>
+              <span>{"5min"}</span>
               <span className="mx-1">·</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -38,16 +43,11 @@ function PostCard({ postCardData }) {
       </div>
 
       <div className="px-6 ">
-        <div className="font-bold text-xl mb-2">Delicious Meal</div>
-        <p className="text-gray-700 text-base">
-          This is a delicious-looking meal with a fried egg, salad, and meat
-          covered in gravy. Perfect for a great dinner!
-        </p>
+        <p className="text-gray-700 text-base">{profileData.postContent}</p>
       </div>
       <img
         className="w-full p-4 h-64 object-cover"
-        src={postCardData.image}
-        alt="Food Plate"
+        src={`http://127.0.0.1:8000/images/posts/${profileData.image}`}
       />
       <hr className="my-2" />
       <CardFooter className="flex items-center  space-x-4">
